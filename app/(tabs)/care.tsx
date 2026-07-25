@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-function Explore() {
+function Care() {
   return (
     <View>
       <Text>This is the explore page</Text>
@@ -9,4 +9,4 @@ function Explore() {
   );
 }
 
-export default Explore;
+export default Care;
