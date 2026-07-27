@@ -1,7 +1,8 @@
 import { ActivityRow } from "@/components/ActivityRow";
+import { BlogCard } from "@/components/BlogCard";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { ScrollView, Text, View } from "react-native";
+import { FlatList, ScrollView, Text, View } from "react-native";
 import {
   BellAlertIcon,
   BellIcon,
@@ -27,6 +28,44 @@ const activities = [
     time: "4min",
     detail: "You have an appointment with Dr. Olumuyiwa Azeez",
   },
+  {
+    id: "3",
+    type: "appointment" as const,
+    avatar: require("@/assets/images/avatar.jpg"),
+    time: "4min",
+    detail: "You have an appointment with Dr. Olumuyiwa Azeez",
+  },
+  {
+    id: "4",
+    type: "prescription" as const,
+    avatar: require("@/assets/images/avatar.jpg"),
+    time: "4min",
+    detail: "Ezinne Ibeneme got prescription from XYZ Pharmacy",
+  },
+];
+
+const blogPosts = [
+  {
+    id: "1",
+    image: "https://picsum.photos/seed/health-blog-1/440/240",
+    title: "Consectetur feugiat sagittis consectetur quam gravida lorem.",
+    postedAgo: "3 hrs ago",
+    readTime: "5 mins read",
+  },
+  {
+    id: "2",
+    image: "https://picsum.photos/seed/health-blog-2/440/240",
+    title: "Consectetur feugiat sagittis consectetur quam gravida lorem.",
+    postedAgo: "3 hrs ago",
+    readTime: "5 mins read",
+  },
+  {
+    id: "3",
+    image: "https://picsum.photos/seed/health-blog-3/440/240",
+    title: "Consectetur feugiat sagittis consectetur quam gravida lorem.",
+    postedAgo: "3 hrs ago",
+    readTime: "5 mins read",
+  },
 ];
 
 export default function Feed() {
@@ -36,7 +75,7 @@ export default function Feed() {
     <ScrollView
       className="flex-1 bg-gray-50"
       contentInsetAdjustmentBehavior="automatic"
-      contentContainerStyle={{ paddingBottom: 94 + insets.bottom }}
+      contentContainerStyle={{ paddingBottom: 130 + insets.bottom }}
     >
       <View className="pr-[18px] pl-[15px] w-full h-28 bg-white flex flex-row items-center justify-between">
         <Text className=" text-blue-950 text-xl font-bold uppercase leading-8 ">
@@ -223,6 +262,24 @@ export default function Feed() {
             )}
           </View>
         ))}
+      </View>
+
+      <View className="mt-[30px] ">
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={blogPosts}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ gap: 12, paddingHorizontal: 15 }}
+          renderItem={({ item }) => (
+            <BlogCard
+              image={item.image}
+              title={item.title}
+              postedAgo={item.postedAgo}
+              readTime={item.readTime}
+            />
+          )}
+        />
       </View>
     </ScrollView>
   );
