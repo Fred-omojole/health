@@ -3,7 +3,7 @@ import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
 const SvgFeed = (props: SvgProps) => (
   <Svg
-   
+    viewBox="0 0 18 18"
     width={18}
     height={18}
     fill="none"

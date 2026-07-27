@@ -1,9 +1,9 @@
 import * as React from "react";
-import Svg, { G, Path, Defs, ClipPath } from "react-native-svg";
 import type { SvgProps } from "react-native-svg";
+import Svg, { ClipPath, Defs, G, Path } from "react-native-svg";
 const SvgHealth2 = (props: SvgProps) => (
   <Svg
-  
+    viewBox="0 0 18 18"
     width={18}
     height={18}
     fill="none"
