@@ -1,3 +1,4 @@
+import { Image } from 'expo-image';
 import { cssInterop } from 'nativewind';
 import Svg from 'react-native-svg';
 
@@ -6,4 +7,8 @@ cssInterop(Svg, {
     target: 'style',
     nativeStyleToProp: { color: true },
   },
+});
+
+cssInterop(Image, {
+  className: 'style',
 });

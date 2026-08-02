@@ -129,8 +129,7 @@ export default function Feed() {
             <View className="flex-row items-center gap-2 bg-white/20 rounded-md px-3 py-2">
               <PhoneIcon size={14} color="#fff" />
               <Text className="text-white text-xs font-medium ">
-                Tap for
-                <br /> Emergency
+                {"Tap for\nEmergency"}
               </Text>
             </View>
           </View>
