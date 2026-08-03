@@ -1,24 +1,31 @@
+import { FilterHospitalModal } from "@/components/filterHospitalModal";
 import { HospitalCard } from "@/components/HospitalCard";
 import { router } from "expo-router";
 import { useState } from "react";
 import {
-  FlatList,
-  Pressable,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    FlatList,
+    Pressable,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from "react-native";
 import {
-  AdjustmentsHorizontalIcon,
-  ArrowLeftIcon,
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
+    AdjustmentsHorizontalIcon,
+    ArrowLeftIcon,
+    ChevronDownIcon,
+    MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const categories = ["Hospital", "Pharmacy", "Med Lab", "Dental Clinic", "Eye Clinic"];
+const categories = [
+  "Hospital",
+  "Pharmacy",
+  "Med Lab",
+  "Dental Clinic",
+  "Eye Clinic",
+];
 
 const nearYou = {
   initials: "KH",
@@ -67,7 +74,7 @@ const hospitals = [
 export default function FindAHospital() {
   const insets = useSafeAreaInsets();
   const [activeCategory, setActiveCategory] = useState("Hospital");
-
+  const [filterOpen, setFilterOpen] = useState(false);
   return (
     <View className="flex-1 bg-gray-50" style={{ paddingTop: insets.top }}>
       <View className="bg-white px-[15px] pb-4">
@@ -91,7 +98,10 @@ export default function FindAHospital() {
               className="flex-1 text-blue-950 text-sm"
             />
           </View>
-          <TouchableOpacity className="flex-row items-center gap-1.5 border border-gray-200 rounded-xl px-3 h-11">
+          <TouchableOpacity
+            onPress={() => setFilterOpen(true)}
+            className="flex-row items-center gap-1.5 border border-gray-200 rounded-xl px-3 h-11"
+          >
             <AdjustmentsHorizontalIcon size={18} color="#F2733D" />
             <Text className="text-blue-950 text-sm font-medium">Filter</Text>
           </TouchableOpacity>
@@ -106,7 +116,10 @@ export default function FindAHospital() {
           {categories.map((category) => {
             const active = category === activeCategory;
             return (
-              <Pressable key={category} onPress={() => setActiveCategory(category)}>
+              <Pressable
+                key={category}
+                onPress={() => setActiveCategory(category)}
+              >
                 <View
                   className={
                     active
@@ -133,7 +146,10 @@ export default function FindAHospital() {
       <FlatList
         data={hospitals}
         keyExtractor={(item) => item.name}
-        contentContainerStyle={{ paddingTop: 15, paddingBottom: 40 + insets.bottom }}
+        contentContainerStyle={{
+          paddingTop: 15,
+          paddingBottom: 40 + insets.bottom,
+        }}
         ListHeaderComponent={
           <View className="mb-4">
             <View className="bg-orange-50 px-[15px] py-2 mb-3">
@@ -149,7 +165,8 @@ export default function FindAHospital() {
               </Text>
               <TouchableOpacity className="flex-row items-center gap-1">
                 <Text className="text-gray-400 text-xs">
-                  SORT: <Text className="text-blue-950 font-medium">Rating</Text>
+                  SORT:{" "}
+                  <Text className="text-blue-950 font-medium">Rating</Text>
                 </Text>
                 <ChevronDownIcon size={14} color="#8A93B2" />
               </TouchableOpacity>
@@ -157,6 +174,11 @@ export default function FindAHospital() {
           </View>
         }
         renderItem={({ item }) => <HospitalCard {...item} />}
+      />
+
+      <FilterHospitalModal
+        visible={filterOpen}
+        onClose={() => setFilterOpen(false)}
       />
     </View>
   );
