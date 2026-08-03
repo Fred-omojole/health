@@ -2,7 +2,8 @@ import { ActivityRow } from "@/components/ActivityRow";
 import { BlogCard } from "@/components/BlogCard";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { FlatList, Pressable, ScrollView, Text, View } from "react-native";
 import {
   BellAlertIcon,
   BellIcon,
@@ -167,24 +168,26 @@ export default function Feed() {
       </View>
 
       <View className="mt-[89px] flex-row flex-wrap gap-[17px]  items-center justify-center">
-        <View className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
-          <Image
-            source={require("@/assets/images/card1.svg")}
-            className="absolute right-20 bottom-0"
-            style={{ width: 96, height: 98 }}
-          />
-          <View>
-            <Text className="w-full max-w-[130px] mb-[8px] text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
-              Find a Hospital
-            </Text>
-            <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
-              Browse our network of 5000+ providers across the country
-            </Text>
-          </View>
-          <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
-            <ArrowRightIcon size={10} color="#fff" />
-          </View>
-        </View>
+        <Link href="/find-a-hospital" asChild>
+          <Pressable className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
+            <Image
+              source={require("@/assets/images/card1.svg")}
+              className="absolute right-20 bottom-0"
+              style={{ width: 96, height: 98 }}
+            />
+            <View>
+              <Text className="w-full max-w-[130px] mb-[8px] text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
+                Find a Hospital
+              </Text>
+              <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
+                Browse our network of 5000+ providers across the country
+              </Text>
+            </View>
+            <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
+              <ArrowRightIcon size={10} color="#fff" />
+            </View>
+          </Pressable>
+        </Link>
 
         <View className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
           <Image
@@ -205,43 +208,47 @@ export default function Feed() {
           </View>
         </View>
 
-        <View className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
-          <Image
-            source={require("@/assets/images/card1.svg")}
-            className="absolute right-20 bottom-0"
-            style={{ width: 96, height: 98 }}
-          />
-          <View>
-            <Text className="w-full max-w-[130px] mb-1 text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
-              Find a Hospital
-            </Text>
-            <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
-              Browse our network of 5000+ providers across the country
-            </Text>
-          </View>
-          <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
-            <ArrowRightIcon size={10} color="#fff" />
-          </View>
-        </View>
+        <Link href="/find-a-hospital" asChild>
+          <Pressable className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
+            <Image
+              source={require("@/assets/images/card1.svg")}
+              className="absolute right-20 bottom-0"
+              style={{ width: 96, height: 98 }}
+            />
+            <View>
+              <Text className="w-full max-w-[130px] mb-1 text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
+                Find a Hospital
+              </Text>
+              <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
+                Browse our network of 5000+ providers across the country
+              </Text>
+            </View>
+            <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
+              <ArrowRightIcon size={10} color="#fff" />
+            </View>
+          </Pressable>
+        </Link>
 
-        <View className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
-          <Image
-            source={require("@/assets/images/card1.svg")}
-            className="absolute right-20 bottom-0"
-            style={{ width: 96, height: 98 }}
-          />
-          <View>
-            <Text className="w-full max-w-[130px] mb-1 text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
-              Find a Hospital
-            </Text>
-            <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
-              Browse our network of 5000+ providers across the country
-            </Text>
-          </View>
-          <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
-            <ArrowRightIcon size={10} color="#fff" />
-          </View>
-        </View>
+        <Link href="/find-a-hospital" asChild>
+          <Pressable className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
+            <Image
+              source={require("@/assets/images/card1.svg")}
+              className="absolute right-20 bottom-0"
+              style={{ width: 96, height: 98 }}
+            />
+            <View>
+              <Text className="w-full max-w-[130px] mb-1 text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
+                Find a Hospital
+              </Text>
+              <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
+                Browse our network of 5000+ providers across the country
+              </Text>
+            </View>
+            <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
+              <ArrowRightIcon size={10} color="#fff" />
+            </View>
+          </Pressable>
+        </Link>
       </View>
 
       <View className="mt-[50px] px-[15px]">
