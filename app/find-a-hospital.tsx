@@ -80,7 +80,7 @@ export default function FindAHospital() {
       <View className="bg-white px-[15px] pb-4">
         <TouchableOpacity
           onPress={() => router.back()}
-          className="h-9 w-9 items-center justify-center -ml-2 mt-3"
+          className="h-9 w-9 items-center justify-start mt-3"
         >
           <ArrowLeftIcon size={22} color="#6366F1" />
         </TouchableOpacity>

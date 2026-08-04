@@ -75,10 +75,13 @@ export default function Feed() {
   return (
     <ScrollView
       className="flex-1 bg-gray-50"
-      contentInsetAdjustmentBehavior="automatic"
+      contentInsetAdjustmentBehavior="never"
       contentContainerStyle={{ paddingBottom: 130 + insets.bottom }}
     >
-      <View className="pr-[18px] pl-[15px] w-full h-28 bg-white flex flex-row items-center justify-between">
+      <View
+        style={{ paddingTop: insets.top, height: 102 + insets.top }}
+        className="pr-[18px] pl-[15px] w-full bg-white flex flex-row items-center justify-between"
+      >
         <Text className=" text-blue-950 text-xl font-bold uppercase leading-8 ">
           my hmo
         </Text>
@@ -189,24 +192,26 @@ export default function Feed() {
           </Pressable>
         </Link>
 
-        <View className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
-          <Image
-            source={require("@/assets/images/card1.svg")}
-            className="absolute left-10 bottom-10"
-            style={{ width: 96, height: 98 }}
-          />
-          <View>
-            <Text className="w-full max-w-[130px] mb-[8px] text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
-              View Id cards
-            </Text>
-            <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
-              View ID cards for you and your dependents here
-            </Text>
-          </View>
-          <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
-            <ArrowRightIcon size={10} color="#fff" />
-          </View>
-        </View>
+        <Link href="/view-id-Cards" asChild>
+          <Pressable className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
+            <Image
+              source={require("@/assets/images/card1.svg")}
+              className="absolute right-20 bottom-0"
+              style={{ width: 96, height: 98 }}
+            />
+            <View>
+              <Text className="w-full max-w-[130px] mb-[8px] text-blue-950 text-base font-semibold leading-4 font-['urbanist']">
+                View Id cards
+              </Text>
+              <Text className="w-[124px] text-blue-950 text-[10px] font-normal font-['urbanist']">
+                View ID cards for you and your dependents here
+              </Text>
+            </View>
+            <View className="h-[22px] w-[22px] items-center justify-center rounded-full bg-[#F2733D]">
+              <ArrowRightIcon size={10} color="#fff" />
+            </View>
+          </Pressable>
+        </Link>
 
         <Link href="/find-a-hospital" asChild>
           <Pressable className="bg-white rounded-lg w-[170px] h-[120px] px-[17px] py-[17px] justify-between overflow-hidden">
